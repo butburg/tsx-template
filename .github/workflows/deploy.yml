@@ -26,11 +26,27 @@ jobs:
       - name: Check out
         uses: actions/checkout@v4
 
+      - name: Validate required inputs
+        run: |
+          missing=()
+          [[ -z "$SSH_HOST" ]] && missing+=(SSH_HOST)
+          [[ -z "$SSH_USER" ]] && missing+=(SSH_USER)
+          [[ -z "$SSH_PRIVATE_KEY" ]] && missing+=(SSH_PRIVATE_KEY)
+          if [[ ${#missing[@]} -gt 0 ]]; then
+            echo "Missing required secrets: ${missing[*]}" >&2
+            exit 1
+          fi
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: npm
+
+      - name: Ensure lockfile
+        run: |
+          if [[ ! -f package-lock.json ]]; then
+            npm install --package-lock-only
+          fi
 
       - name: Install dependencies
         run: npm install

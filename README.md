@@ -23,7 +23,7 @@ After running, execute `npm install` to pick up any newly added dependencies.
 - Workflow auto-runs on `main` pushes and can be triggered manually via *Actions → Deploy → Run workflow*.
 - Required GitHub secrets: `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY` (the private key for the remote host), optional `SSH_PORT` (defaults to 22), optional `SSH_KNOWN_HOSTS` (if you don’t want the workflow to ssh-keyscan).
 - Repo variable: `REMOTE_DIR` (remote path for the build). If not set, the workflow falls back to the repository name (e.g., `tsx-template`). Manual runs can also override with the `target` input.
-- What it does: checkout → install → build → set up SSH → test SSH → `rsync` `dist/` to the target path on the host. Secrets must be added in the GitHub repo that uses this template; they cannot live in the template itself.
+- What it does: checkout → validate required secrets → ensure lockfile → install → build → set up SSH → test SSH → `rsync` `dist/` to the target path on the host. Secrets must be added in the GitHub repo that uses this template; they cannot live in the template itself.
 
 ## Build/Deploy
 Build artifacts land in `dist/`.
