@@ -1,6 +1,6 @@
 # TSX Template
 
-Drop in your TSX component in `src/ReplaceMeExample.tsx` and deploy on Lima City.
+Drop in your TSX component in `src/ReplaceMeExample.tsx` and deploy on your host.
 
 ## Quickstart
 - `npm install`
@@ -19,7 +19,7 @@ Use the helper script to drop in your TSX file:
   - Add any bare imports it finds to `package.json` (with `latest` versions)
 After running, execute `npm install` to pick up any newly added dependencies.
 
-## Deploy via GitHub Actions (Lima)
+## Deploy via GitHub Actions (SSH)
 - Workflow auto-runs on `main` pushes and can be triggered manually via *Actions → Deploy → Run workflow*.
 - Required GitHub secrets: `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY` (the private key for the remote host), optional `SSH_PORT` (defaults to 22), optional `SSH_KNOWN_HOSTS` (if you don’t want the workflow to ssh-keyscan).
 - Repo variable: `REMOTE_DIR` (remote path for the build). If not set, the workflow falls back to the repository name (e.g., `tsx-template`). Manual runs can also override with the `target` input.
