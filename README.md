@@ -34,3 +34,7 @@ You can run the Node/Vite workflow inside a Pipenv shell as long as npm is avail
 - `npm install`
 - `npm run dev` to develop, or `npm run build` to verify the build (output goes to `dist/`)
 - If npm isn’t available in the Pipenv shell, install Node there first (e.g., `pipenv install nodeenv` then `nodeenv -p`), then rerun the steps above.
+
+## Licence
+
+This project is licensed under the MIT licence. 2025 butburg.
