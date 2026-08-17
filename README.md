@@ -1,5 +1,7 @@
 # TSX Template
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O111DFT3)
+
 Drop in your TSX component in `src/ReplaceMeExample.tsx` and deploy on your host.
 
 ## Quickstart
